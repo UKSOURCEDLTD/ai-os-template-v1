@@ -1,6 +1,6 @@
 # [Business Name] — Business Processes
 
-*Mapped during onboarding. Update as processes change.*
+*Mapped during onboarding (see `blueprint/onboarding.md` Phase 4). Update as processes change.*
 
 ---
 

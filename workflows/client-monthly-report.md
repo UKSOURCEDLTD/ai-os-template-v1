@@ -69,7 +69,7 @@ Show the draft. Do not send. Ask:
 - Format for email / doc?
 
 ### 6. After Sending
-- Archive a snapshot in `data/historical/[client]/[YYYY-MM].md`
+- Archive a snapshot in `data/historical/[client-name]/[YYYY-MM].md`
 - Update `memory/clients.md` with current status
 - Log in `logs/actions.md`: Monthly report sent to [Client Name]
 

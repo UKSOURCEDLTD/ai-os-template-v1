@@ -4,6 +4,8 @@ This is the structured discovery process for onboarding a new client.
 Run this as a conversation — work through each section, capture everything,
 then generate the context layer files into `clients/[client-name]/`.
 
+**Related:** `blueprint/architecture.md` (the 8-layer architecture this populates) · `blueprint/stack.md` (the runtime stack each client gets)
+
 ---
 
 ## Phase 1: Business Identity
@@ -112,14 +114,23 @@ Based on everything above, design:
 
 ## Output
 
-After discovery, generate these files into `clients/[client-name]/`:
+After discovery, populate the business context files:
+
+- `context/business.md` ← from Phase 1–2 (identity, products, customers, goals)
+- `context/processes.md` ← from Phase 4 (process audit)
+- `context/integrations.md` ← from Phase 3 (tool stack audit)
+- `context/rules.md` ← from Phase 8 (business-specific rules)
+
+Then generate the client folder into `clients/[client-name]/` (see `clients/README.md` for full conventions):
 
 ```
 clients/[client-name]/
 ├── profile.md               ← who they are, contacts, contract
 ├── performance.md           ← KPIs and monthly metrics
 ├── actions.md               ← open tasks, meeting notes, decisions
-└── ppc/                     ← if managing Amazon PPC
+└── [service]/               ← service-specific subfolder (optional, only if needed)
     ├── strategy.md
     └── action-plan.md
 ```
+
+Finally, add the client to `memory/clients.md` and uncomment their entry in `CLAUDE.md` under Client Files.

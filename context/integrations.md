@@ -1,6 +1,7 @@
 # [Business Name] — Integration Map
 
 *What tools the business uses, what data lives where, and how they connect.*
+*Populated during onboarding (see `blueprint/onboarding.md` Phase 3).*
 
 ---
 

@@ -1,6 +1,7 @@
 # [Business Name] — AI Rules
 
 *Hard rules the AI must always follow. Non-negotiable.*
+*Universal rules are mirrored in `CLAUDE.md`. Business-specific rules are defined here during onboarding (see `blueprint/onboarding.md` Phase 8).*
 
 ---
 

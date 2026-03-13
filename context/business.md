@@ -1,6 +1,6 @@
 # [Business Name] — Knowledge Base
 
-*Generated during AI OS onboarding. Keep updated as the business evolves.*
+*Generated during AI OS onboarding (see `blueprint/onboarding.md` Phase 1–2). Keep updated as the business evolves.*
 *The AI reads this every session — it is the single source of truth about the business.*
 
 ---

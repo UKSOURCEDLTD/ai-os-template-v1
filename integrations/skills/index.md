@@ -6,7 +6,7 @@ They are invoked automatically when the right context is detected, or explicitly
 | Skill | Purpose | Status | File |
 |-------|---------|--------|------|
 | Google Workspace | Gmail, Calendar, Drive, Sheets, Docs, Tasks | Active | [google-workspace.md](google-workspace.md) |
-| Web Search | Real-time research and information retrieval | Active | [web-search.md](web-search.md) |
+| Web Search | Research, lead intel, competitor monitoring | Active | [web-search.md](web-search.md) |
 
 ---
 

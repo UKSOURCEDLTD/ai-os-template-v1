@@ -156,3 +156,10 @@ The compounding advantage. Every interaction makes the AI OS more valuable.
 6. Security Layer guards all actions
 7. Observability Layer watches the whole system
 8. Learning Layer feeds improvements back into Context and Intelligence
+
+---
+
+## Related Documents
+
+- `blueprint/stack.md` — how this architecture maps to the runtime stack (OpenClaw, n8n, Pinecone, tooling)
+- `blueprint/onboarding.md` — the structured discovery process for onboarding a new client onto this architecture
