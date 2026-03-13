@@ -51,65 +51,37 @@ These are non-negotiable. Follow them every session.
 
 ## Workflows
 
-Repeatable multi-step processes. When asked to run one, follow the steps exactly.
-Each workflow should produce a clear output.
+All workflow files live in `workflows/`. Each file contains the trigger, pre-flight reads, step-by-step instructions, expected output, and edge cases.
 
-### Generate Proposal
-1. Research the prospect and their business using web search
-2. Identify which of our services best fits their needs
-3. Read `context/business.md` for our offerings and positioning
-4. Write a tailored proposal: their situation, our recommendation, process, investment, next step
-5. Present for review before sending
+When asked to run a workflow, **read the relevant file first**, then follow it exactly.
 
-### Weekly Review
-1. Check Gmail for lead activity and client comms from the past 7 days
-2. Check Calendar for meetings held and upcoming
-3. Check any tracked metrics or KPIs
-4. Summarise: wins, blockers, pipeline status, priorities for next week
-5. Save summary to memory
+| Workflow | File | Trigger |
+|----------|------|---------|
+| Generate Proposal | `workflows/generate-proposal.md` | "generate proposal for [prospect]" |
+| Lead Response | `workflows/lead-response.md` | "respond to lead [name]" or new lead flagged |
+| Client Monthly Report | `workflows/client-monthly-report.md` | "generate report for [client]" or end of month |
+| Weekly Review | `workflows/weekly-review.md` | "weekly review" |
+| Morning Briefing | `workflows/morning-briefing.md` | Scheduled weekdays [TIME] |
+| End of Day Summary | `workflows/eod-summary.md` | Scheduled weekdays [TIME] |
+| Weekly Pipeline Review | `workflows/weekly-pipeline-review.md` | Scheduled [DAY] [TIME] |
 
-### Lead Response
-1. Read the lead's message and any available context
-2. Research their business using web search
-3. Draft a warm, personalised first response
-4. Suggest next steps for nurturing
-5. Present draft for approval before sending
-
-### Client Monthly Report
-1. Read the client's profile.md, performance.md, and actions.md
-2. Pull key metrics for the month
-3. Summarise: revenue, performance, key actions taken, account health
-4. Draft report for review before sending to client
-
-<!-- Add business-specific workflows below -->
+<!-- Add business-specific workflows to the table above and create a matching file in workflows/ -->
 
 ---
 
 ## Scheduled Tasks
 
-### Morning Briefing — Weekdays [TIME]
-```
-Review today's calendar, flag any new emails that need attention,
-list active leads and their status, and outline the top 3 priorities for today.
-Read context/business.md for business context before responding.
-```
+These run automatically. Each maps to a workflow file — read the file before executing.
 
-### End of Day Summary — Weekdays [TIME]
-```
-Summarise what happened today: emails handled, meetings held, tasks completed.
-Flag anything that needs follow-up tomorrow.
-Update memory with any decisions made or outcomes learned.
-```
+| Schedule | Workflow | File |
+|----------|----------|------|
+| Weekdays [TIME] | Morning Briefing | `workflows/morning-briefing.md` |
+| Weekdays [TIME] | End of Day Summary | `workflows/eod-summary.md` |
+| [DAY] [TIME] | Weekly Pipeline Review | `workflows/weekly-pipeline-review.md` |
 
-### Weekly Pipeline Review — [DAY] [TIME]
-```
-Full pipeline review: where is each lead in the funnel?
-Revenue this month vs target. Active client projects and their status.
-Top priorities for the week. Any content or outreach to do.
-Read context/business.md for business context.
-```
+After each scheduled task runs, log it in `logs/tasks.md`.
 
-<!-- Add business-specific scheduled tasks below -->
+<!-- Add business-specific scheduled tasks to the table above -->
 
 ---
 
