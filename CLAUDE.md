@@ -115,18 +115,16 @@ Read context/business.md for business context.
 
 ## Integrations
 
-### Built-in (Google Workspace skills)
-- **Gmail** — leads, client comms, outreach, notifications
-- **Google Calendar** — meetings, scheduling, availability, time blocking
-- **Google Drive** — documents, proposals, contracts, shared files
-- **Google Sheets** — tracking, reporting, financial data, CRM
-- **Google Docs** — proposals, reports, SOPs, meeting notes
-- **Google Tasks** — task management, to-do tracking
+Full integration documentation lives in `integrations/`. Always check there for capability details, available tools, and usage notes.
 
-### Built-in (Other)
-- **Web Search** — research, competitor monitoring, market intelligence, lead research
+### MCP Servers (`integrations/mcps/`)
+<!-- Add one line per installed MCP -->
+- **[MCP Name]** — [what it connects to] — `integrations/mcps/[mcp-name].md`
 
-<!-- Add additional integrations (MCP servers, APIs) below -->
+### Skills (`integrations/skills/`)
+- **Google Workspace** — Gmail, Calendar, Drive, Sheets, Docs, Tasks — `integrations/skills/google-workspace.md`
+- **Web Search** — research, lead intel, competitor monitoring — `integrations/skills/web-search.md`
+<!-- Add one line per installed skill -->
 
 ---
 
