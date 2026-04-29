@@ -19,7 +19,7 @@ Open `CLAUDE.md` and replace the placeholders in the **Identity** section:
 
 ### 3. Run the onboarding discovery
 
-Open `blueprint/onboarding.md` and work through each phase. This is a structured conversation — the AI will ask questions and use your answers to populate the context files.
+Open `workflows/client-mapping.md` and work through each phase. This is a structured 5-phase discovery that produces a complete map of the business plus a prioritised, timelocked workflow roadmap.
 
 The onboarding process fills in:
 - `context/business.md` — who you are, what you do, products, customers, goals
@@ -64,9 +64,9 @@ See the full file map in `CLAUDE.md`.
 
 ## Architecture
 
-The AI OS is built on 8 layers. See `blueprint/architecture.md` for the full breakdown.
+The AI OS is built on 4 practical layers — Context, Data, Integrations, Automations. See `blueprint/architecture.md` for the full breakdown.
 
-For the runtime stack (OpenClaw, n8n, Pinecone, tooling), see `blueprint/stack.md`.
+For the runtime stack (VPS + cron + Claude Code), see `blueprint/stack.md`.
 
 ---
 

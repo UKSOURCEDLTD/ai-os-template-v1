@@ -321,7 +321,7 @@ The README and CONFIG live inside the workflow folder. The blueprint doc lives u
 
 ✗ **Modifying state before the external action succeeds.** Cold-outreach currently marks leads as "sent" in the tracker before Gmail confirms delivery. This is an accepted trade-off with a CRM-based safety net, but future workflows should prefer post-confirm marking: write state only after the external system confirms the action. Two-phase: `pending → committed`.
 
-✗ **Creating new top-level directories.** The 8 layers (`blueprint/`, `context/`, `workflows/`, `memory/`, `data/`, `logs/`, `scripts/`, plus `CLAUDE.md`) cover everything. If you need a new layer, it almost certainly goes under `workflows/{name}/data/`.
+✗ **Creating new top-level directories.** The existing folders (`blueprint/`, `context/`, `workflows/`, `memory/`, `data/`, `logs/`, `scripts/`, `clients/`, `integrations/`, plus `CLAUDE.md`) cover everything. If you need new state, it almost certainly goes under `workflows/{name}/data/`.
 
 ✗ **Depending on Supabase URL or service key via env vars in scripts.** Always go through `config` + `.credentials/supabase.env`. Env vars disappear when cron runs the script in a clean shell.
 

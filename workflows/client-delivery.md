@@ -18,9 +18,9 @@
 ## Pre-flight
 
 - `sales/packages.md` — confirm which package they bought
-- `blueprint/onboarding.md` — the discovery framework (Phases 1-8)
+- `workflows/client-mapping.md` — the 5-phase discovery & mapping process
 - `blueprint/stack.md` — the runtime stack each client gets
-- `blueprint/architecture.md` — the 8-layer architecture
+- `blueprint/architecture.md` — the 4-layer architecture
 
 ---
 
@@ -33,7 +33,7 @@
 | Week | What happens | Owner |
 |------|-------------|-------|
 | **Week 1** | Discovery + build | Both |
-| **Week 2** | Testing + launch | [Technical Lead] |
+| **Week 2** | Testing + launch | Technical Lead |
 
 ### AI OS Growth (£3-5K setup + £750/mo)
 
@@ -42,8 +42,8 @@
 | Week | What happens | Owner |
 |------|-------------|-------|
 | **Week 1** | Discovery + architecture design | Both |
-| **Week 2** | Core build — context, first workflows, integrations | [Technical Lead] |
-| **Week 3** | Extended build — remaining workflows, memory, testing | [Technical Lead] |
+| **Week 2** | Core build — context, first workflows, integrations | Technical Lead |
+| **Week 3** | Extended build — remaining workflows, memory, testing | Technical Lead |
 | **Week 4** | Launch + training + handover | Both |
 
 ### AI OS Partner (£5-10K setup + £1,500/mo)
@@ -53,9 +53,9 @@
 | Week | What happens | Owner |
 |------|-------------|-------|
 | **Week 1** | Deep discovery + full architecture design | Both |
-| **Week 2-3** | Core system build — context, workflows, integrations | [Technical Lead] |
-| **Week 3-4** | Custom builds — bespoke agents, advanced integrations | [Technical Lead] |
-| **Week 5** | Testing, refinement, internal review | [Technical Lead] |
+| **Week 2-3** | Core system build — context, workflows, integrations | Technical Lead |
+| **Week 3-4** | Custom builds — bespoke agents, advanced integrations | Technical Lead |
+| **Week 5** | Testing, refinement, internal review | Technical Lead |
 | **Week 6** | Launch + training + strategy session | Both |
 
 ---
@@ -64,7 +64,7 @@
 
 ### Stage 1: Kickoff (Day 1)
 
-**[Client Lead] leads:**
+**Client Lead leads:**
 1. Send welcome email with:
    - What to expect (timeline, milestones, communication cadence)
    - Access request list (see below)
@@ -82,7 +82,7 @@
 
 ### Stage 2: Discovery & Mapping (Days 2-5)
 
-**[Technical Lead] leads the sessions, [Client Lead] takes notes.**
+**{{OWNER_NAMES}} — one leads the sessions, the other takes notes.**
 
 Run the full client mapping process (`workflows/client-mapping.md`):
 
@@ -105,7 +105,7 @@ Run the full client mapping process (`workflows/client-mapping.md`):
 
 ### Stage 3: Architecture Design (Days 3-7)
 
-**[Technical Lead] leads:**
+**Technical Lead leads:**
 1. Using the mapping outputs from Stage 2, design the AI OS build:
    - Context layer — populate `context/` files from `business-map.md`
    - Data layer — configure data sources and schema from `data-map.md`
@@ -114,37 +114,37 @@ Run the full client mapping process (`workflows/client-mapping.md`):
 2. Confirm build order matches the signed-off roadmap
 3. Finalise delivery timeline with specific dates
 
-**[Client Lead]:**
+**Client Lead:**
 - Present the delivery plan to client for sign-off (if not already done in Stage 2)
 - Set communication cadence (weekly update + async channel)
 
 ### Stage 4: Build (Varies by package)
 
-**[Technical Lead] builds. [Client Lead] manages client comms.**
+**{{OWNER_NAMES}} — one builds, the other manages client comms.**
 
 **Build order (always):**
 1. **Context layer first** — populate business.md, processes.md, integrations.md, rules.md for the client. This is the foundation everything else depends on.
 2. **First workflow (quick win)** — pick the highest-impact, easiest-to-deliver automation. Get it running fast so the client sees value immediately.
-3. **Integrations** — connect their tools via n8n (email, calendar, CRM, payments, etc.)
+3. **Integrations** — connect their tools via direct API calls (email, calendar, CRM, payments, etc.). Add n8n only if event-driven webhooks are needed.
 4. **Remaining workflows** — build out the full workflow suite per the architecture plan
-5. **Memory layer** — set up Pinecone namespace, embed key documents
+5. **Memory layer** — set up `memory/` files. Add Pinecone only if vector recall over a large document corpus is needed.
 6. **Scheduled jobs** — morning briefing, EOD summary, weekly reviews (per client needs)
 7. **Channel delivery** — connect their messaging channel (Telegram/WhatsApp/Slack)
 
 **During build:**
 - Test each workflow individually before connecting
 - Document everything in the client's folder
-- Send weekly progress update to client ([Client Lead])
+- Send weekly progress update to client (Client Lead)
 - Flag any blockers or scope changes immediately
 
 ### Stage 5: Testing & QA (2-3 days)
 
-**[Technical Lead]:**
+**Technical Lead:**
 1. Run every workflow end-to-end
 2. Test every integration (send test data, verify outputs)
 3. Test scheduled jobs (run manually, verify output format)
 4. Test edge cases (what happens when data is missing, API fails, etc.)
-5. Internal review — [Client Lead] reviews outputs as if they were the client
+5. Internal review — Client Lead reviews outputs as if they were the client
 
 **Checklist:**
 - [ ] All workflows run without errors
@@ -183,7 +183,7 @@ Run the full client mapping process (`workflows/client-mapping.md`):
 3. **Week 3-4:** Optimise based on feedback, add any quick improvements
 4. **End of Month 1:** Present 90-day roadmap (for Growth and Partner tiers)
 
-**[Client Lead] sends:**
+**Client Lead sends:**
 - Weekly async update every Friday
 - Monthly performance summary at end of Month 1
 
@@ -200,11 +200,11 @@ Run the full client mapping process (`workflows/client-mapping.md`):
 
 | Task | Frequency | Owner |
 |------|-----------|-------|
-| Monitor system health | Daily (automated alerts) | [Technical Lead] |
+| Monitor system health | Daily (automated alerts) | Technical Lead |
 | Respond to client queries | Same business day | Both |
-| Weekly async update | Every Friday | [Client Lead] |
-| Optimise workflows | Ongoing | [Technical Lead] |
-| Add new automations (Growth/Partner) | As identified | [Technical Lead] |
+| Weekly async update | Every Friday | Client Lead |
+| Optimise workflows | Ongoing | Technical Lead |
+| Add new automations (Growth/Partner) | As identified | Technical Lead |
 | Monthly performance review | End of month | Both |
 | Strategy call (Partner only) | Monthly | Both |
 | Quarterly business review (Partner only) | Quarterly | Both |

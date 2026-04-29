@@ -257,6 +257,6 @@ Plus: client sign-off on the roadmap before build begins.
 | Client wants to skip discovery and jump to building | Explain: "We build the wrong thing if we don't map first. This is how we make sure every hour of build time creates maximum value." |
 | Client's tools have no API | Flag in the data map. Explore alternatives: can they switch tools? Can we use browser automation? Is there a Zapier/Make connector? Note the workaround in integrations.md. |
 | Scope creep — client keeps adding "oh and also..." | Capture everything but tier it. Quick wins and core go in Weeks 1-3. Everything else goes in Future Roadmap. "Great idea — let's put that in Month 2." |
-| Discovery reveals they need a different package | Flag to the team lead. If Essentials client clearly needs Growth-level work, have the conversation early before build starts. |
+| Discovery reveals they need a different package | Flag to Client Lead. If Essentials client clearly needs Growth-level work, have the conversation early before build starts. |
 | Required data is missing | Flag to user before proceeding. Do not guess or generate synthetic data. |
 | External tool is inaccessible | Note the gap in output. Produce what you can from available information. |

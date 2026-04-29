@@ -206,19 +206,7 @@ else
 fi
 
 # -----------------------------------------------------------------------------
-# 7. Supabase env
-# -----------------------------------------------------------------------------
-SUPA_ENV="$REPO_ROOT/.credentials/supabase.env"
-if [ ! -f "$SUPA_ENV" ]; then
-    check fail ".credentials/supabase.env" "create with SUPABASE_SERVICE_ROLE_KEY=..."
-elif grep -q '^SUPABASE_SERVICE_ROLE_KEY=.\+$' "$SUPA_ENV"; then
-    check ok ".credentials/supabase.env" "SUPABASE_SERVICE_ROLE_KEY present"
-else
-    check fail ".credentials/supabase.env" "SUPABASE_SERVICE_ROLE_KEY missing or empty"
-fi
-
-# -----------------------------------------------------------------------------
-# 8. claude CLI
+# 7. claude CLI
 # -----------------------------------------------------------------------------
 if command -v claude >/dev/null 2>&1; then
     ver="$(claude --version 2>/dev/null | head -1)"

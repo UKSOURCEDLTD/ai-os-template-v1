@@ -65,9 +65,9 @@ This is what makes it an OS, not a chatbot. Proactive, not just reactive.
 - **Triggers** — things that react to events (new lead → alert, payment failed → chase)
 - **Workflows** — multi-step processes triggered on demand (generate proposal, onboard client)
 
-**Implementation:** Paperclip orchestrates multiple Claude Code agents via the `claude_local` adapter. Each agent has a role, heartbeat schedule, and budget. n8n handles event-driven triggers. Workflows defined in CLAUDE.md and `workflows/`.
+**Implementation:** cron schedules workflow scripts on the VPS. Each script reads state, invokes Claude Code (CLI) for reasoning, calls APIs directly, and writes state back. Workflows defined in CLAUDE.md and `workflows/`.
 
-**The engine:** Claude (or another LLM) is the intelligence that reasons across all layers. It's not a separate layer — it's the engine that reads Context, queries Data, acts through Integrations, and executes Automations.
+**The engine:** Claude Code (CLI) is the reasoning engine. It's not a separate layer — it's invoked from workflow scripts to read Context, query Data, act through Integrations, and execute Automations.
 
 ---
 
@@ -116,14 +116,14 @@ When onboarding a new client, the mapping process (`workflows/client-mapping.md`
 | Phase 1: Business & People Map | Context | `context/business.md`, `context/rules.md`, `memory/` |
 | Phase 2: Tool Stack & Data Audit | Data + Integration | `data/sources.md`, `context/integrations.md` |
 | Phase 3: Process Deep-Dive | Automation | Workflow list, trigger definitions, schedule design |
-| Phase 4: Integration Architecture | Integration | API connections, credential setup, n8n flows |
+| Phase 4: Integration Architecture | Integration | API connections, credential setup, optional event plumbing |
 | Phase 5: Workflow Roadmap | All layers | Prioritised build plan with delivery timeline |
 
 ---
 
 ## Related Documents
 
-- `blueprint/stack.md` — how this architecture maps to the runtime stack (Paperclip, n8n, Pinecone, tooling)
+- `blueprint/stack.md` — how this architecture maps to the runtime stack (VPS + cron + Claude Code)
 - `workflows/client-mapping.md` — the 5-phase process for mapping a new client onto this architecture
 - `blueprint/workflow-pattern.md` — the canonical pattern every workflow follows
 - `blueprint/cold-outreach-system.md` — worked implementation example

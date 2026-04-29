@@ -3,18 +3,18 @@
 #
 # Update intentionally — pin bumps should be a separate commit with the
 # reasoning so deployed instances can upgrade deliberately.
+#
+# This is the CORE set. Optional add-ons (Supabase, etc.) come with their own
+# requirements when added per client.
 
-# Gmail API + OAuth (cold-outreach workflow)
+# Gmail API + OAuth (most common integration)
 google-api-python-client==2.149.0
 google-auth==2.35.0
 google-auth-oauthlib==1.2.1
 google-auth-httplib2==0.2.0
 
-# XLSX CRM rebuild
+# XLSX handling (common across CRM-style workflows)
 openpyxl==3.1.5
-
-# Supabase-backed state backup (OS-level)
-supabase==2.9.1
 
 # Tests (dev-only but kept here so doctor.sh can run pytest without a separate install)
 pytest==8.3.3

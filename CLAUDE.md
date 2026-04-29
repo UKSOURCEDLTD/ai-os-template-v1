@@ -94,9 +94,6 @@ This is the complete structure of the AI OS. Know where everything lives.
 │   ├── init-client.sh             ← one-time bootstrap when cloning the template
 │   ├── bootstrap-vps.sh           ← VPS environment setup
 │   ├── doctor.sh                  ← health check
-│   ├── backup_to_supabase.py      ← daily state backup
-│   ├── restore_from_supabase.py   ← recovery from backup
-│   ├── run_backup.sh              ← backup orchestration
 │   └── send_owner_alert.py        ← failure / alert dispatch
 │
 ├── tests/                         ← pytest suite — config, template, logic validation
@@ -111,7 +108,7 @@ This is the complete structure of the AI OS. Know where everything lives.
 │   ├── tasks.md                   ← scheduled task execution log
 │   └── actions.md                 ← significant action audit trail
 │
-└── .credentials/                  ← secrets (gitignored — OAuth tokens, API keys, Supabase env)
+└── .credentials/                  ← secrets (gitignored — OAuth tokens, API keys)
 ```
 
 ---
@@ -229,22 +226,23 @@ Append-only. Never delete entries.
 Engineering reference — architecture, infrastructure, and patterns.
 
 - `blueprint/architecture.md` — the 4-layer architecture (Context, Data, Integrations, Automations)
-- `blueprint/stack.md` — the runtime stack map (Paperclip, n8n, Pinecone, tooling, data flows)
+- `blueprint/stack.md` — the runtime stack map (VPS + cron + Claude Code, plus optional add-ons)
 - `blueprint/workflow-pattern.md` — the canonical workflow design pattern every workflow follows
 
 ---
 
 ## Deployment & Operations
 
-Infrastructure lifecycle — setup, health checks, backups, disaster recovery.
+Infrastructure lifecycle — setup, health checks, deployment.
 
-- `DEPLOY.md` — step-by-step deployment guide (VPS, OAuth, cron, Supabase, verification)
+- `DEPLOY.md` — step-by-step deployment guide (VPS, OAuth, cron, verification)
 - `scripts/doctor.sh` — run anytime to verify the deployment is healthy
 - `scripts/bootstrap-vps.sh` — fresh VPS provisioning
-- `scripts/backup_to_supabase.py` — daily state backup (run from cron)
-- `scripts/restore_from_supabase.py` — recovery workflow
+- `scripts/send_owner_alert.py` — failure / alert dispatch
 - `tests/` — run `pytest` before shipping config or template changes
 - `.credentials/` — OAuth tokens, API keys, env files (gitignored)
+
+> **Optional add-ons** (Supabase backups, n8n event plumbing, Pinecone vector recall, MCP servers) are added per client during the build phase — not included in the base template. See `blueprint/stack.md` for guidance.
 
 ---
 
