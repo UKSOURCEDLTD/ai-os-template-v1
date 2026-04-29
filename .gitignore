@@ -1,0 +1,35 @@
+# Secrets — never commit
+.credentials/
+*.env
+*.env.local
+*.key
+*.pem
+token.json
+credentials.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs (keep structure, ignore content)
+logs/*.log
+logs/**/*.log
+
+# Workflow runtime data
+workflows/*/data/backups/
+workflows/*/data/*.lock

@@ -1,0 +1,20 @@
+# Pinned dependencies for every AI OS deployment.
+# Install with: python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+#
+# Update intentionally — pin bumps should be a separate commit with the
+# reasoning so deployed instances can upgrade deliberately.
+
+# Gmail API + OAuth (cold-outreach workflow)
+google-api-python-client==2.149.0
+google-auth==2.35.0
+google-auth-oauthlib==1.2.1
+google-auth-httplib2==0.2.0
+
+# XLSX CRM rebuild
+openpyxl==3.1.5
+
+# Supabase-backed state backup (OS-level)
+supabase==2.9.1
+
+# Tests (dev-only but kept here so doctor.sh can run pytest without a separate install)
+pytest==8.3.3
