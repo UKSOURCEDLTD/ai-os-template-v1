@@ -242,7 +242,7 @@ Infrastructure lifecycle — setup, health checks, deployment.
 - `tests/` — run `pytest` before shipping config or template changes
 - `.credentials/` — OAuth tokens, API keys, env files (gitignored)
 
-> **Optional add-ons** (Supabase backups, n8n event plumbing, Pinecone vector recall, MCP servers) are added per client during the build phase — not included in the base template. See `blueprint/stack.md` for guidance.
+> **Optional add-ons** (Supabase, n8n event plumbing, MCP servers) are added per client during the build phase — not included in the base template. Vector recall, if ever needed, is via pgvector inside the client's existing Supabase. See `blueprint/stack.md` for guidance.
 
 ---
 

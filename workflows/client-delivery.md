@@ -127,7 +127,7 @@ Run the full client mapping process (`workflows/client-mapping.md`):
 2. **First workflow (quick win)** — pick the highest-impact, easiest-to-deliver automation. Get it running fast so the client sees value immediately.
 3. **Integrations** — connect their tools via direct API calls (email, calendar, CRM, payments, etc.). Add n8n only if event-driven webhooks are needed.
 4. **Remaining workflows** — build out the full workflow suite per the architecture plan
-5. **Memory layer** — set up `memory/` files. Add Pinecone only if vector recall over a large document corpus is needed.
+5. **Memory layer** — set up `memory/` files. File-based recall is the default. Only consider vector recall (Supabase pgvector inside their existing Supabase) if the client has 50+ unstructured documents that genuinely need semantic search.
 6. **Scheduled jobs** — morning briefing, EOD summary, weekly reviews (per client needs)
 7. **Channel delivery** — connect their messaging channel (Telegram/WhatsApp/Slack)
 

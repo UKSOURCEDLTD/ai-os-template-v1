@@ -1,6 +1,6 @@
 # Deployment Guide
 
-*End-to-end walkthrough for spinning up an AI OS instance for a new client. Budget: 30–60 minutes for the core stack. Add-ons (Supabase backups, n8n event plumbing, Pinecone vector recall) are configured separately, per the mapping roadmap.*
+*End-to-end walkthrough for spinning up an AI OS instance for a new client. Budget: 30–60 minutes for the core stack. Add-ons (Supabase, n8n event plumbing) are configured separately, per the mapping roadmap. Vector recall, if ever needed, runs as pgvector inside the client's existing Supabase — no separate vendor.*
 
 The 8 steps below mirror the order `scripts/doctor.sh` verifies. If you follow them in sequence, doctor should go fully green at step 8.
 
@@ -114,9 +114,8 @@ Doctor checks every step above and prints PASS / FAIL for each. Iterate until ev
 
 Only add these if the mapping roadmap calls for them:
 
-- **Supabase backups** — for state backup / disaster recovery. Set up a Supabase project, drop `SUPABASE_SERVICE_ROLE_KEY` into `.credentials/supabase.env`, install `supabase` Python package, add backup scripts.
+- **Supabase** — for structured business data (one db per client, owned by the client) and/or state backup. Drop `SUPABASE_SERVICE_ROLE_KEY` into `.credentials/supabase.env`, install `supabase` Python package, add backup scripts. Enable `pgvector` later if vector recall over a large document corpus is genuinely needed (~50+ documents).
 - **n8n** — for event-driven webhooks (Stripe events, form submissions, etc.). Self-host on the VPS or use n8n Cloud.
-- **Pinecone** — for vector recall over a large document corpus. Create a project, get an API key, install `pinecone-client`.
 - **MCP servers** — for deeper tool integration. Document each in `integrations/mcps/`.
 
 Each add-on adds its own credentials to `.credentials/` and its own dependencies to `requirements.txt`.

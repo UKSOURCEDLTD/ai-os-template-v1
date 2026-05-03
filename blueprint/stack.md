@@ -94,8 +94,7 @@ The base stack covers most clients. Add these only when a specific client requir
 | Add-on | When to add | What it does |
 |--------|-------------|--------------|
 | **n8n** | When event-driven webhooks are needed (Stripe, form submissions, CRM events) | Catches external events, verifies signatures, holds credentials, triggers workflow scripts |
-| **Pinecone** | When vector recall over a large document corpus is needed (proposals, meeting notes, past reports) | Embeddings for AI recall (RAG) |
-| **Supabase** | When state backup / disaster recovery is required | Daily backups of workflow state files |
+| **Supabase** | When the client needs structured business data, state backup, or eventual vector recall | Postgres database owned by the client; we administer. Includes pgvector for embeddings if/when corpus justifies it. |
 | **MCP servers** | When deeper integration with a specific tool is needed | Tool-specific Claude Code extensions |
 
 These are documented and configured per client during the build phase. They are NOT part of the base template.
@@ -120,7 +119,7 @@ How the 4-layer architecture (see `blueprint/architecture.md`) maps to the core 
 1. **No orchestrator overhead.** cron + scripts + Claude CLI is well-understood, debuggable, and runs on a cheap VPS.
 2. **File-based state.** All workflow state lives as JSON/CSV/markdown. Trivial to inspect, back up, and restore.
 3. **Claude where it adds value.** The CLI is invoked only when reasoning is needed. The plumbing around it is plain scripts.
-4. **Optionals stay optional.** No n8n, Pinecone, or Supabase by default. Add only when a specific client needs them.
+4. **Optionals stay optional.** No n8n or Supabase by default. Add only when a specific client needs them. No vector store in use today — file-based memory is plenty until corpus demands otherwise; if/when it does, pgvector inside the client's own Supabase is the chosen path (no new vendor).
 5. **Git is the contract.** Engineers push, VPS pulls. No deploy pipelines, no Docker registries.
 
 ---
@@ -134,5 +133,5 @@ How the 4-layer architecture (see `blueprint/architecture.md`) maps to the core 
 5. Set up OAuth tokens for required integrations (Gmail, Calendar, etc.) in `.credentials/`
 6. Configure cron schedules per the mapping roadmap
 7. Run `scripts/doctor.sh` to verify the deployment is healthy
-8. Add any required optionals (n8n / Pinecone / Supabase) per the mapping recommendations
+8. Add any required optionals (n8n / Supabase) per the mapping recommendations
 9. Hand over: client gets messaging channel, engineer gets git access

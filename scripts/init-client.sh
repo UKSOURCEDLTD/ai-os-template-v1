@@ -309,8 +309,9 @@ Next steps:
 
   5. Run scripts/doctor.sh to verify the deployment is healthy.
 
-  6. Add optional add-ons (Supabase / n8n / Pinecone / MCP) per the
-     roadmap. They are NOT included in the base template.
+  6. Add optional add-ons (Supabase / n8n / MCP) per the roadmap.
+     They are NOT included in the base template. Vector recall, if
+     ever needed, is via pgvector inside the client's Supabase.
 
 Commit when ready:
      git add -A && git commit -m "init: bootstrap for $CLIENT_NAME"
